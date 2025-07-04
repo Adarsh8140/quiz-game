@@ -63,13 +63,4 @@ The game includes 60+ questions across multiple categories:
 2. Open `index.html` in any modern web browser
 3. No server or installation required - works offline
 
-## Customization
-- Add new questions by extending the `questionsDatabase` array in `script.js`
-- Modify styling in `style.css`
-- Adjust game mechanics and scoring in `script.js`
-
-## Educational Purpose
-This game is designed to be both entertaining and educational, making it suitable for classroom use, educational events, or personal knowledge enhancement.
-
-## License
-Feel free to use, modify, and distribute this code for educational purposes.
+**Made by Adarsh Pandey**
