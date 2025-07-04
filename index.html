@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC Knowledge Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <h1>Welcome to KBC Knowledge Quiz!</h1>
+                <p>Test your knowledge and learn something new today!</p>
+                <div class="input-group">
+                    <input type="text" id="player-name" placeholder="Enter your name" required>
+                    <button id="start-game">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="player-info">
+                    <span id="player-name-display"></span>
+                    <span id="question-counter">Question 1/10</span>
+                </div>
+                <div class="score-display">
+                    Score: <span id="current-score">0</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-text" id="question-text">
+                    <!-- Question will be inserted here -->
+                </div>
+                
+                <div class="options-container">
+                    <div class="option" data-index="0">
+                        <span class="option-label">A</span>
+                        <span class="option-text"></span>
+                    </div>
+                    <div class="option" data-index="1">
+                        <span class="option-label">B</span>
+                        <span class="option-text"></span>
+                    </div>
+                    <div class="option" data-index="2">
+                        <span class="option-label">C</span>
+                        <span class="option-text"></span>
+                    </div>
+                    <div class="option" data-index="3">
+                        <span class="option-label">D</span>
+                        <span class="option-text"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lifelines">
+                <button id="fifty-fifty" class="lifeline-btn">
+                    <i class="fas fa-balance-scale"></i>
+                    50:50
+                </button>
+                <button id="audience-poll" class="lifeline-btn">
+                    <i class="fas fa-users"></i>
+                    Audience Poll
+                </button>
+                <button id="phone-friend" class="lifeline-btn">
+                    <i class="fas fa-phone"></i>
+                    Phone a Friend
+                </button>
+            </div>
+        </div>
+
+        <!-- Feedback Screen -->
+        <div id="feedback-screen" class="screen">
+            <div class="feedback-content">
+                <div id="feedback-message"></div>
+                <div id="correct-answer"></div>
+                <div id="educational-fact"></div>
+                <button id="next-question">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <h2>Quiz Completed!</h2>
+                <div id="final-message"></div>
+                <div id="final-score"></div>
+                
+                <div class="previous-scores">
+                    <h3>Previous Scores</h3>
+                    <ul id="previous-scores-list"></ul>
+                </div>
+                
+                <button id="play-again">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audience Poll Modal -->
+    <div id="audience-poll-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Audience Poll Results</h3>
+                <span id="audience-poll-close" class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="audience-poll-chart" class="poll-chart">
+                    <div class="poll-option">
+                        <span class="poll-label">A</span>
+                        <div class="poll-bar-container">
+                            <div class="poll-bar" data-option="0"></div>
+                            <span class="poll-percentage" data-option="0">0%</span>
+                        </div>
+                    </div>
+                    <div class="poll-option">
+                        <span class="poll-label">B</span>
+                        <div class="poll-bar-container">
+                            <div class="poll-bar" data-option="1"></div>
+                            <span class="poll-percentage" data-option="1">0%</span>
+                        </div>
+                    </div>
+                    <div class="poll-option">
+                        <span class="poll-label">C</span>
+                        <div class="poll-bar-container">
+                            <div class="poll-bar" data-option="2"></div>
+                            <span class="poll-percentage" data-option="2">0%</span>
+                        </div>
+                    </div>
+                    <div class="poll-option">
+                        <span class="poll-label">D</span>
+                        <div class="poll-bar-container">
+                            <div class="poll-bar" data-option="3"></div>
+                            <span class="poll-percentage" data-option="3">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phone a Friend Modal -->
+    <div id="phone-friend-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Phone a Friend</h3>
+                <span id="phone-friend-close" class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="phone-animation">
+                    <i class="fas fa-phone fa-pulse"></i>
+                    <div class="phone-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div id="phone-friend-message" class="friend-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas for Correct Answers -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
